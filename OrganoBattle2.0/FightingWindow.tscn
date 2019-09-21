@@ -1,0 +1,236 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://FightingWindow_Graphics/07_FightingWindow-01.png" type="Texture" id=1]
+[ext_resource path="res://FightingWindow.gd" type="Script" id=2]
+[ext_resource path="res://FightingWindow_Graphics/010_AttackButton.png" type="Texture" id=3]
+[ext_resource path="res://FightingWindow_Graphics/010_AttackPressed.png" type="Texture" id=4]
+[ext_resource path="res://FightingWindow_Graphics/010_AttackHover.png" type="Texture" id=5]
+[ext_resource path="res://AttackButton.gd" type="Script" id=6]
+[ext_resource path="res://AttackPopupMenu.gd" type="Script" id=7]
+[ext_resource path="res://FightingWindow_Graphics/010_DefendButtons.png" type="Texture" id=8]
+[ext_resource path="res://FightingWindow_Graphics/010_DefendPressed.png" type="Texture" id=9]
+[ext_resource path="res://FightingWindow_Graphics/010_DefendHover.png" type="Texture" id=10]
+[ext_resource path="res://DefenseButton.gd" type="Script" id=11]
+[ext_resource path="res://DefensePopupMenu.gd" type="Script" id=12]
+[ext_resource path="res://BattleWindow.tscn" type="PackedScene" id=13]
+[ext_resource path="res://FightingWindow_Graphics/011_HealthBar.png" type="Texture" id=14]
+[ext_resource path="res://FightingWindow_Graphics/011_HealthProgress.png" type="Texture" id=15]
+[ext_resource path="res://FightingWindow_Graphics/011_PowerBar.png" type="Texture" id=16]
+[ext_resource path="res://FightingWindow_Graphics/011_PowerProgress.png" type="Texture" id=17]
+[ext_resource path="res://FightingWindow_Graphics/08_Scientist1.png" type="Texture" id=18]
+[ext_resource path="res://FightingWindow_Graphics/08_Scientist2.png" type="Texture" id=19]
+[ext_resource path="res://AttackAnimations/ScientistOT2-01.png" type="Texture" id=20]
+[ext_resource path="res://AttackAnimations/ScientistOT3-01.png" type="Texture" id=21]
+[ext_resource path="res://AttackAnimations/ScientistOT4-01.png" type="Texture" id=22]
+[ext_resource path="res://AttackAnimations/ScientistOT6-01.png" type="Texture" id=23]
+[ext_resource path="res://AttackAnimations/ScientistFlame1.png" type="Texture" id=24]
+[ext_resource path="res://AttackAnimations/ScientistFlame2.png" type="Texture" id=25]
+[ext_resource path="res://AttackAnimations/ScientistFlame3.png" type="Texture" id=26]
+[ext_resource path="res://AttackAnimations/ScientistFlame4.png" type="Texture" id=27]
+[ext_resource path="res://AttackAnimations/ScientistFlame5.png" type="Texture" id=28]
+[ext_resource path="res://AttackAnimations/ScientistFlame6.png" type="Texture" id=29]
+[ext_resource path="res://AttackAnimations/ScientistFlame7.png" type="Texture" id=30]
+[ext_resource path="res://AttackAnimations/ScientistCorrosive1-01.png" type="Texture" id=31]
+[ext_resource path="res://AttackAnimations/ScientistCorrosive2-01.png" type="Texture" id=32]
+[ext_resource path="res://AttackAnimations/ScientistCorrosive3-01.png" type="Texture" id=33]
+[ext_resource path="res://AttackAnimations/ScientistCorrosive4-01.png" type="Texture" id=34]
+[ext_resource path="res://AttackAnimations/ScientistCorrosive6-01.png" type="Texture" id=35]
+[ext_resource path="res://FightingWindow_Graphics/09_Bubble1.png" type="Texture" id=36]
+[ext_resource path="res://FightingWindow_Graphics/09_Bubble2.png" type="Texture" id=37]
+[ext_resource path="res://FightingWindow_Graphics/09_Bubble3.png" type="Texture" id=38]
+[ext_resource path="res://FightingWindow_Graphics/09_Bubble4.png" type="Texture" id=39]
+[ext_resource path="res://FightingWindow_Graphics/ComputersTurn.png" type="Texture" id=40]
+[ext_resource path="res://FightingWindow_Graphics/PowerIncreased.png" type="Texture" id=41]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "New Anim 1",
+"speed": 1.7
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "New Anim",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "New Anim 1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="FightingWindow" type="TextureRect"]
+margin_right = 900.0
+margin_bottom = 650.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="AttackButton" type="TextureButton" parent="."]
+margin_left = 330.0
+margin_top = 500.0
+margin_right = 580.0
+margin_bottom = 600.0
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+expand = true
+script = ExtResource( 6 )
+
+[node name="AttackPopupMenu" type="PopupMenu" parent="."]
+margin_left = 330.641
+margin_top = 402.263
+margin_right = 576.641
+margin_bottom = 494.263
+hide_on_state_item_selection = true
+script = ExtResource( 7 )
+
+[node name="DefenseButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 560.0
+margin_top = 480.0
+margin_right = 809.406
+margin_bottom = 580.0
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="DefensePopupMenu" type="PopupMenu" parent="."]
+margin_left = 562.538
+margin_top = 246.868
+margin_right = 796.538
+margin_bottom = 469.868
+custom_colors/font_color = Color( 0.984314, 0.960784, 0.960784, 1 )
+custom_colors/font_color_hover = Color( 0.654902, 0.611765, 0.611765, 1 )
+popup_exclusive = true
+hide_on_state_item_selection = true
+script = ExtResource( 12 )
+
+[node name="BattleWindow" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="PlayerHealthBar" type="TextureProgress" parent="."]
+margin_left = 51.0
+margin_top = 55.0
+margin_right = 302.0
+margin_bottom = 125.0
+value = 100.0
+texture_over = ExtResource( 14 )
+texture_progress = ExtResource( 15 )
+
+[node name="PlayerPowerBar" type="TextureProgress" parent="."]
+margin_left = 599.142
+margin_top = 58.8729
+margin_right = 809.142
+margin_bottom = 125.873
+max_value = 10.0
+value = 10.0
+texture_over = ExtResource( 16 )
+texture_progress = ExtResource( 17 )
+
+[node name="OpponentHealthBar" type="TextureProgress" parent="."]
+margin_left = 262.68
+margin_top = 185.298
+margin_right = 513.68
+margin_bottom = 255.298
+rect_scale = Vector2( 0.28, 0.28 )
+value = 100.0
+texture_over = ExtResource( 14 )
+texture_progress = ExtResource( 15 )
+
+[node name="OpponentPowerBar" type="TextureProgress" parent="."]
+margin_left = 416.989
+margin_top = 183.325
+margin_right = 626.989
+margin_bottom = 250.325
+rect_scale = Vector2( 0.3, 0.3 )
+max_value = 10.0
+value = 10.0
+texture_over = ExtResource( 16 )
+texture_progress = ExtResource( 17 )
+
+[node name="Scientist" type="AnimatedSprite" parent="."]
+position = Vector2( 365.262, 303.813 )
+scale = Vector2( 0.912347, 0.912347 )
+frames = SubResource( 1 )
+animation = "New Anim 1"
+playing = true
+
+[node name="FlameAttack" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 373.398, 235.255 )
+frames = SubResource( 2 )
+animation = "New Anim 1"
+
+[node name="OralToxicityAttack" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 373.398, 235.255 )
+frames = SubResource( 2 )
+animation = "New Anim"
+
+[node name="CorrosiveAttack" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 396.65, 241.638 )
+scale = Vector2( 0.963526, 0.963526 )
+frames = SubResource( 3 )
+
+[node name="Bubbles" type="AnimatedSprite" parent="."]
+position = Vector2( 483.747, 386.005 )
+scale = Vector2( 1.50049, 1.5005 )
+frames = SubResource( 4 )
+frame = 2
+playing = true
+
+[node name="OpponentTurn" type="TextureRect" parent="."]
+visible = false
+margin_left = 301.413
+margin_top = 498.445
+margin_right = 606.413
+margin_bottom = 632.445
+texture = ExtResource( 40 )
+
+[node name="PowerUp" type="TextureRect" parent="."]
+visible = false
+margin_left = 306.624
+margin_top = 228.185
+margin_right = 573.624
+margin_bottom = 378.185
+texture = ExtResource( 41 )
+
+[connection signal="toggled" from="AttackButton" to="." method="_on_AttackButton_toggled"]
+[connection signal="id_pressed" from="AttackPopupMenu" to="." method="_on_AttackPopupMenu_id_pressed"]
+[connection signal="toggled" from="DefenseButton" to="." method="_on_DefenseButton_toggled"]
+[connection signal="id_pressed" from="DefensePopupMenu" to="." method="_on_DefensePopupMenu_id_pressed"]
